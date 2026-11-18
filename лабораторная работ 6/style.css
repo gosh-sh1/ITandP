@@ -1,0 +1,163 @@
+/* === 1. Базовые стили (Mobile First) === */
+*, *::before, *::after {
+  box-sizing: border-box; /* padding и border входят в размер */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* === 2. Сетка страницы (Grid) === */
+.page {
+  display: grid;
+  min-height: 100vh;
+  /* Мобильные: шапка, фильтры, контент, подвал */
+  grid-template-areas:
+    "header"
+    "sidebar"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.page__header { grid-area: header; }
+.page__sidebar { grid-area: sidebar; }
+.page__main { grid-area: main; }
+.page__footer { grid-area: footer; }
+
+/* === 3. Шапка (Flexbox) === */
+.header {
+  display: flex;
+  justify-content: space-between; /* логотип слева, корзина справа */
+  align-items: center;
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header__logo { font-size: 24px; font-weight: bold; color: #ff6b35; }
+
+.header__cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #ff6b35;
+  color: #fff;
+  cursor: pointer;
+}
+
+.header__cart-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  color: #ff6b35;
+  font-size: 12px;
+}
+
+/* === 4. Фильтры (Flexbox) === */
+/* Мобильные: компактный ряд под шапкой */
+.filters {
+  padding: 12px 20px;
+  background: #2c3e50;
+  color: #fff;
+}
+
+.filters__title { display: none; }
+
+.filters__group {
+  display: flex;
+  flex-wrap: wrap; /* пункты переносятся на новую строку */
+  gap: 10px 20px;
+}
+
+.filters__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* === 5. Контент и карточки === */
+.main-content { padding: 20px; }
+
+.restaurants-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 колонка на мобильных */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.restaurant-card {
+  display: flex;
+  flex-direction: column; /* элементы карточки друг под другом */
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-card__img { height: 140px; background: #ccc; }
+.restaurant-card__img--pizza { background: #e67e22; }
+.restaurant-card__img--sushi { background: #16a085; }
+.restaurant-card__img--burger { background: #c0392b; }
+
+.restaurant-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* тело занимает всю высоту карточки */
+  gap: 8px;
+  padding: 15px;
+}
+
+.restaurant-card__btn {
+  margin-top: auto; /* кнопка прижата к низу карточки */
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background: #ff6b35;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.restaurant-card__btn:hover { background: #e55a25; }
+
+.footer {
+  padding: 15px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+/* === 6. Планшеты (Media Queries) === */
+@media (min-width: 768px) {
+  /* Добавляем боковую панель */
+  .page {
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+    grid-template-columns: 240px 1fr; /* сайдбар 240px, остальное — контент */
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .filters { padding: 20px; }
+  .filters__title { display: block; margin-bottom: 15px; }
+  .filters__group { flex-direction: column; } /* фильтры столбиком */
+
+  .restaurants-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* === 7. Десктопы === */
+@media (min-width: 1024px) {
+  .restaurants-grid { grid-template-columns: repeat(3, 1fr); }
+}

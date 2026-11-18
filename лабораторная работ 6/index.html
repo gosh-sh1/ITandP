@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Обязательный мета-тег для адаптивности -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodGo - доставка еды</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+  <!-- Шапка с корзиной -->
+  <header class="page__header header">
+    <div class="header__logo">FoodGo</div>
+    <button class="header__cart" type="button">
+      Корзина
+      <span class="header__cart-count">3</span>
+    </button>
+  </header>
+
+  <!-- Сайдбар с фильтрами -->
+  <aside class="page__sidebar filters">
+    <h2 class="filters__title">Фильтры</h2>
+    <div class="filters__group">
+      <label class="filters__item">
+        <input type="checkbox" name="cuisine" value="pizza"> Пицца
+      </label>
+      <label class="filters__item">
+        <input type="checkbox" name="cuisine" value="sushi"> Суши
+      </label>
+      <label class="filters__item">
+        <input type="checkbox" name="cuisine" value="burger"> Бургеры
+      </label>
+      <label class="filters__item">
+        <input type="checkbox" name="rating" value="45"> Рейтинг от 4.5
+      </label>
+      <label class="filters__item">
+        <input type="checkbox" name="time" value="30"> Доставка до 30 мин
+      </label>
+    </div>
+  </aside>
+
+  <!-- Основной контент -->
+  <main class="page__main main-content">
+    <h1 class="main-content__title">Рестораны рядом</h1>
+    <div class="restaurants-grid">
+        <article class="restaurant-card">
+          <div class="restaurant-card__img restaurant-card__img--pizza"></div>
+          <div class="restaurant-card__body">
+            <h2 class="restaurant-card__title">Pizza House</h2>
+            <p class="restaurant-card__meta">Пицца · ★ 4.8 · 30–40 мин</p>
+            <button class="restaurant-card__btn" type="button">Открыть меню</button>
+          </div>
+        </article>
+        <article class="restaurant-card">
+          <div class="restaurant-card__img restaurant-card__img--sushi"></div>
+          <div class="restaurant-card__body">
+            <h2 class="restaurant-card__title">Sushi Go</h2>
+            <p class="restaurant-card__meta">Суши · ★ 4.7 · 40–50 мин</p>
+            <button class="restaurant-card__btn" type="button">Открыть меню</button>
+          </div>
+        </article>
+        <article class="restaurant-card">
+          <div class="restaurant-card__img restaurant-card__img--burger"></div>
+          <div class="restaurant-card__body">
+            <h2 class="restaurant-card__title">Burger Town</h2>
+            <p class="restaurant-card__meta">Бургеры · ★ 4.5 · 25–35 мин</p>
+            <button class="restaurant-card__btn" type="button">Открыть меню</button>
+          </div>
+        </article>
+        <article class="restaurant-card">
+          <div class="restaurant-card__img restaurant-card__img--pizza"></div>
+          <div class="restaurant-card__body">
+            <h2 class="restaurant-card__title">Napoli</h2>
+            <p class="restaurant-card__meta">Пицца · ★ 4.6 · 35–45 мин</p>
+            <button class="restaurant-card__btn" type="button">Открыть меню</button>
+          </div>
+        </article>
+        <article class="restaurant-card">
+          <div class="restaurant-card__img restaurant-card__img--sushi"></div>
+          <div class="restaurant-card__body">
+            <h2 class="restaurant-card__title">Tokyo Roll</h2>
+            <p class="restaurant-card__meta">Суши · ★ 4.9 · 45–55 мин</p>
+            <button class="restaurant-card__btn" type="button">Открыть меню</button>
+          </div>
+        </article>
+        <article class="restaurant-card">
+          <div class="restaurant-card__img restaurant-card__img--burger"></div>
+          <div class="restaurant-card__body">
+            <h2 class="restaurant-card__title">Grill Bar</h2>
+            <p class="restaurant-card__meta">Бургеры · ★ 4.4 · 20–30 мин</p>
+            <button class="restaurant-card__btn" type="button">Открыть меню</button>
+          </div>
+        </article>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="page__footer footer">
+    <p>&copy; 2026 FoodGo</p>
+  </footer>
+</body>
+</html>
